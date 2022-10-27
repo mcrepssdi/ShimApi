@@ -1,0 +1,56 @@
+﻿Shipper Header
+https://www.sharedlogic.com/ws/rimas.svc/GetMSSHIPH?sUser=mobile&sPassword=elibom&sCompanyCode=SLG&sDivisionCode=1&sControl=1111
+
+
+Shipper Detail lines
+https://www.sharedlogic.com/ws/rimas.svc/GetMSSHIPDCS?sUser=mobile&sPassword=elibom&sCompanyCode=SLG&sDivisionCode=1&sControl=202699
+
+
+
+-- SAI Calls from a MILL to OMNI
+{
+  "dataEnvironmentName": "dl4testosc",
+  "shipmentNo": "1HP653",
+  "customerNo": "STEE97",
+  "poNo": "201339-XA",
+  "poLine": "01"
+}
+
+{
+  "response": {
+    "status": "VALIDATION_ERROR",
+    "message": "One or more errors have occurred.",
+    "errors": [
+      {
+        "field": "ShipmentNo",
+        "message": "Shipment has been unloaded.  ShipmentNo:1HP653"
+      }
+    ],
+    "data": {},
+    "carrier": null,
+    "addresses": null
+  }
+}
+
+
+
+{
+  "dataEnvironmentName": "dl4testosc",
+  "shipmentNo": "1LE379",
+  "customerNo": "STEE97",
+  "poNo": "ST00001450",
+  "poLine": "01"
+}
+
+{
+  "response": {
+    "status": "OK",
+    "message": "Validated",
+    "errors": [],
+    "data": {
+      "ShipmentNo": []
+    },
+    "carrier": null,
+    "addresses": null
+  }
+}

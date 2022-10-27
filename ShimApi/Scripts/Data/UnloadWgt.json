@@ -1,0 +1,18 @@
+﻿{
+  "dataEnvironmentName": "dl4testosc",
+  "unloadWeights": {
+    "customerNo": "STEE92",
+    "shipmentNo": "1HP688",
+    "customerShipRefNo": "",
+    "unloadDate": "2022-10-04",
+    "grossWt": 150000,
+    "tareWt": 50000,
+    "wtToleranceHandling": "HOLD",
+    "priceUM": "GT",
+    "price": 150.00,
+    "priceMismatchHandling": "HOLD",
+    "registerPrintFlag": "N",
+    "loadComment": "",
+    "username": "mcreps"
+  }
+}
