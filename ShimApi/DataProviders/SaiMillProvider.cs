@@ -110,7 +110,7 @@ namespace ShimApi.DataProviders
                 conn.ChangeDatabase(dataEnvironmentName);
             
                 int rowsAffected = conn.Execute(sb.ToString(), dp);
-                _logger.Trace($"Finished Successfully...ControlNo {controlNo} updated.  Rows Affected: {rowsAffected}");
+                _logger.Trace($"Finished Successfully...ControlNo {controlNo} updated with SuppShipNo {suppShipNo}.  Rows Affected: {rowsAffected}");
                 return true;
             }
             catch (Exception e)

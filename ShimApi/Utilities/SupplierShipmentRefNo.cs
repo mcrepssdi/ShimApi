@@ -42,14 +42,14 @@ namespace ShimApi.Utilities
         private static string Random()
         {
             string key = Convert.ToBase64String(Guid.NewGuid().ToByteArray())[..5];
-            string prefix = Random(1, false);
+            string prefix = Random(1, true);
 
             return $"{prefix}{key}";
         }
     
-        private static string Random(int length, bool useNumber)
+        private static string Random(int length, bool useCharactersOnly)
         {
-            string alphanumericCharacters = useNumber switch
+            string alphanumericCharacters = useCharactersOnly switch
             {
                 true => "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
                 _ => "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
@@ -72,7 +72,7 @@ namespace ShimApi.Utilities
         
             byte[] bytes = new byte[length * 8];
             char[] result = new char[length];
-            RandomNumberGenerator cryptoProvider = RNGCryptoServiceProvider.Create();
+            RandomNumberGenerator cryptoProvider = RandomNumberGenerator.Create();
             cryptoProvider.GetBytes(bytes);
             for (int i = 0; i < length; i++)
             {

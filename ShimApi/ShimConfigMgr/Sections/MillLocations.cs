@@ -1,4 +1,5 @@
 ﻿using ShimApi.Enumerations;
+using ShimApi.Utilities;
 
 namespace ShimApi.ShimConfigMgr.Sections
 {
@@ -18,7 +19,7 @@ namespace ShimApi.ShimConfigMgr.Sections
         public MillLocations(IConfiguration section)
         {
             User = section.GetValue<string>("User");
-            Password = section.GetValue<string>("Password");
+            Password = section.GetValue<string>("Password").GetPassword();
             Server = section.GetValue<string>("Server");
             Port = section.GetValue<int>("Port");
             Schemas = new List<string>(section.GetValue<string>("Schemas").Split(","));
@@ -29,7 +30,7 @@ namespace ShimApi.ShimConfigMgr.Sections
             ConnectionStr = SetConnectionString(User, Password);
         
             IntegrationUser = section.GetValue<string>("IntegrationUser");
-            IntegrationPassword = section.GetValue<string>("IntegrationPassword");
+            IntegrationPassword = section.GetValue<string>("IntegrationPassword").GetPassword();
             IntegrationConnectionStr = SetConnectionString(IntegrationUser, IntegrationPassword);
         }
 

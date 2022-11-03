@@ -19,6 +19,7 @@ Logger logger = LogManager.GetCurrentClassLogger();
 GlobalDiagnosticsContext.Set("logDirectory", config.Environment.LogDirectory);
 LogManager.ReconfigExistingLoggers();
 
+// This is required because of the outdate version of the mysqlconnector
 System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
 
 IMySqlProvider mysqlProvider = new SaiProvider(config.SaiConfigurations.Database.ConnectionStr);

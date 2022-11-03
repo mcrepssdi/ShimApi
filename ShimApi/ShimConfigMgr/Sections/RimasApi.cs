@@ -1,4 +1,5 @@
 ﻿using ShimApi.Models;
+using ShimApi.Utilities;
 
 namespace ShimApi.ShimConfigMgr.Sections
 {
@@ -19,6 +20,7 @@ namespace ShimApi.ShimConfigMgr.Sections
             RimasUser = section.GetValue<string>("RimasUser");
             ServiceUrl = section.GetValue<string>("ServiceUrl");
             ServicePath = section.GetValue<string>("ServicePath");
+            RimasPwd = section.GetValue<string>("RimasPwd").GetPassword();
         }
 
 

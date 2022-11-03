@@ -1,6 +1,8 @@
 ﻿using System.Net;
 using System.Text.RegularExpressions;
 using SdiHttpLib.Utilities;
+using SdiPasswordLib;
+using SdiUtility;
 using ShimApi.DataProviders;
 using ShimApi.Enumerations;
 using ShimApi.Models;
@@ -119,6 +121,22 @@ namespace ShimApi.Utilities
                     Response = response.CastReponse<Response?>() ?? new Response {Status = "STSTEM_ERROR"}
                 }
             };
+        }
+        
+        public static string GetPassword(this string pwd)
+        {
+            if (pwd is null) throw new ArgumentNullException(pwd);
+            if (pwd.Trim().IsEmpty()) throw new ArgumentNullException(pwd);
+        
+            try
+            {
+                string Password = Encryption.Unprotect(pwd);
+                return Password;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
     }
 }

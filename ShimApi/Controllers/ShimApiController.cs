@@ -30,7 +30,7 @@ namespace ShimService.API.Controllers
     [Route("/shim/PurchaseShipment")]
     [Route("/shim/SalesOrder")]
     [Route("/shim/SalesScheduling")]
-//[Route("/shim/SalesShipment")]
+    //[Route("/shim/SalesShipment")]
     [Route("/shim/SalesTicket")]
     [Route("/shim/Supplier")]
     public class ShimApiController : ControllerBase
@@ -42,8 +42,7 @@ namespace ShimService.API.Controllers
         private readonly IMsSql _msSqlProvider;
         private readonly IMySqlMillProvider _saiMillProvider;
         private readonly IShimConfigurations _apiConfig;
-        private readonly ApiProperties _apiProperties;
-    
+
         private const string ServiceName = "SalesShipment";
         private const string CallValidateServiceMethod = "CallValidate";
 
@@ -57,8 +56,6 @@ namespace ShimService.API.Controllers
             _msSqlProvider = msSqlProvider;
             _saiMillProvider = saiMillProvider;
             _apiConfig = apiConfig;
-            _apiProperties = apiProperties;
-
         }
 
         [HttpGet]

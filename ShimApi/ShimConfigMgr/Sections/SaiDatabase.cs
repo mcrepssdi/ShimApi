@@ -1,4 +1,6 @@
-﻿namespace ShimApi.ShimConfigMgr.Sections
+﻿using ShimApi.Utilities;
+
+namespace ShimApi.ShimConfigMgr.Sections
 {
     public class SaiDatabase : IDatabase
     {
@@ -15,9 +17,9 @@
             Server = section.GetValue<string>("Server");
             Port = section.GetValue<int>("Port");
             User = section.GetValue<string>("User");
-            Password = section.GetValue<string>("Password");
             Schema = section.GetValue<string>("Schema");
-        
+            Password = section.GetValue<string>("Password").GetPassword();
+            
             ConnectionStr = $"Server={Server};Database={Schema};Uid={User};Pwd={Password};";
         }
     }
